@@ -1,0 +1,45 @@
+<StackLayout class="contact-details">
+
+    <Button class="btn btn-primary btn-view-contact-details" *ngIf="!viewContactDetails" (tap)="showContactDetails()">
+        <FormattedString>
+            <Span [text]="'fa-envelope-o' | fonticon" class="fa contact-icon"></Span>
+            <Span [text]="'  ' + ('reg-profile.view_contact_details' | translate)"></Span>
+        </FormattedString>
+    </Button>
+
+    <StackLayout class="cardStyle contact-details-inner" *ngIf="viewContactDetails">
+    <StackLayout class="contact-details-inner">
+        <StackLayout orientation="horizontal" horizontalAlignment="center" verticalAlignment="center">
+            <Label [text]="'fa-envelope' | fonticon" class="fa contact-icon"></Label>
+            <Label [text]=" ('reg-profile.email' | translate) + ': '" class="font-weight-semibold"></Label>
+            <Label [text]="userEmail" class="link" textWrap="true" (tap)="openMail()"></Label>
+        </StackLayout>
+
+        <StackLayout *ngIf="user.phone" orientation="horizontal" horizontalAlignment="center" verticalAlignment="center">
+            <Label [text]="'fa-phone' | fonticon" class="fa contact-icon"></Label>
+            <Label [text]=" ('reg-profile.phone' | translate) + ': '" class="font-weight-semibold"></Label>
+            <Label [text]="user.phone" class="link" textWrap="true" (tap)="dialPhone()"></Label>
+        </StackLayout>
+
+        <StackLayout class="m-t-10">
+            <Label *ngIf="user.address" [text]="user.address"></Label>
+            <Label [text]="user.postal_code + ' ' + user.city + ', ' + ('global.' + user.country | translate)" class="m-b-5" textWrap="true"></Label>
+        </StackLayout>
+
+        <StackLayout *ngIf="user.facebook || user.twitter || user.linkedin || user.userable.website" orientation="horizontal" class="social"  horizontalAlignment="center" >
+            <StackLayout *ngIf="user.facebook" class="social-icon facebook-icon"  verticalAlignment="center">
+                <Label [text]="'fa-facebook' | fonticon" class="fa" (tap)="openUrl(user.facebook)"></Label>
+            </StackLayout>
+            <StackLayout *ngIf="user.twitter" class="social-icon twitter-icon"  verticalAlignment="center">
+                <Label [text]="'fa-twitter' | fonticon" class="fa" (tap)="openUrl(user.twitter)"></Label>
+            </StackLayout>
+            <StackLayout *ngIf="user.linkedin" class="social-icon linkedin-icon"  verticalAlignment="center">
+                <Label [text]="'fa-linkedin' | fonticon" class="fa" (tap)="openUrl(user.linkedin)"></Label>
+            </StackLayout>
+            <StackLayout *ngIf="user.userable.website" class="social-icon website-icon"  verticalAlignment="center">
+                <Label [text]="'fa-external-link' | fonticon" class="fa" (tap)="openUrl(user.userable.website)"></Label>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+    </StackLayout>
+</StackLayout>

@@ -1,0 +1,43 @@
+<ActionBar [title]="'reg-profile.profile' | translate">
+</ActionBar>
+
+<te-side-drawer-page>
+    <StackLayout class="profile-details">
+        <ScrollView id="scrollView" orientation="vertical">
+            <StackLayout *ngIf="user">
+                <StackLayout class="profile-section header">
+                    <Image class="photo" [src]="backendService.webUrl + 'uploads/photo/' + user.image"></Image>
+                    <Label [text]="user.name" class="profile-title" textWrap="true"></Label>
+                    <Label [text]="'reg-profile.' + user.userable.activity | translate" class="profile-subtitle" textWrap="true"></Label>
+                    <te-contact-details [user]="user"></te-contact-details>
+
+                    <te-alert-button [companyId]="user.id" [alertable]="user.alertable"></te-alert-button>
+                </StackLayout>
+
+                <StackLayout class="cardStyle">
+                    <StackLayout class="profile-section">
+                        <GridLayout rows="*" columns="auto,*">
+                            <StackLayout col="0" class="section-title-icon" verticalAlignment="middle">
+                                <Label [text]="'fa-info' | fonticon" class="fa"></Label>
+                            </StackLayout>
+                            <Label col="1" [text]="'reg-profile.about' | translate" class="section-title"></Label>
+                        </GridLayout>
+                        <StackLayout class="hr-light"></StackLayout>
+
+                        <Label [text]="('reg-profile.we_are_in' | translate) + ':'" class="font-weight-semibold"></Label>
+                        <Label [text]="user.city + ' ' + ('global.' + user.country | translate)" textWrap="true"></Label>
+
+                        <Label *ngIf="user.userable.personal_skills?.length > 0" [text]="('reg-profile.we_are_looking_for_people_skilled_in' | translate) + ':'" class="m-t-5 m-b-2 font-weight-semibold"></Label>
+                        <WrapLayout orientation="horizontal">
+                            <Label *ngFor="let skill of user.userable.personal_skills" class="tag blue" [text]="skill.name"></Label>
+                        </WrapLayout>
+
+                        <Label [text]="('reg-profile.we_think_that_talent_is' | translate) + ':'" class="m-t-5 font-weight-semibold"></Label>
+                        <Label [text]="user.userable.talent" textWrap="true"></Label>
+
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</te-side-drawer-page>

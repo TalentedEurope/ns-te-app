@@ -1,0 +1,18 @@
+<Label class="title" [text]="'search.filters' | translate"></Label>
+<Label *ngIf="filtersService.loading" [text]="('search.loading' | translate) + '...'"></Label>
+
+<StackLayout *ngIf="!filtersService.loading">
+    <Button [text]="'search.apply' | translate" class="btn-primary btn apply" (tap)="filtersService.apply()"></Button>
+    <StackLayout *ngFor="let filterGroup of filtersService.filters" class="filter-group">
+        <Label class="group-title" [text]="filterGroup.title"></Label>
+        <StackLayout *ngFor="let filter of filterGroup.items" class="filter" (tap)="filtersService.toggleFilter(filterGroup, filter)">
+            <StackLayout orientation="horizontal">
+                <CheckBox #elem textWrap="true" verticalAlignment="center"
+                    [checked]="filter.checked"
+                    (checkedChange)="elem.checked !== filter.checked && filtersService.toggleFilter(filterGroup, filter)"></CheckBox>
+                <Label [text]="filter.name" (tap)="filtersService.toggleFilter(filterGroup, filter)" textWrap="true"  verticalAlignment="center"></Label>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</StackLayout>
+

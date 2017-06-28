@@ -1,0 +1,34 @@
+@import 'app/css/variables';
+
+.filter-group {
+    margin-bottom: 10;
+    padding: 10;
+}
+
+.filter {
+    padding: 10;
+    padding-top: 5;
+    padding-bottom: 5;
+}
+
+.title {
+    padding: 5;
+    font-size: 20;
+    padding-top: 14;
+    border-bottom-color: darken($dark-blue, 10%);
+    padding-bottom: 10;
+    text-align: center;
+    background-color: $dark-blue;
+    color: $white;
+}
+
+.group-title {
+    font-size: 16;
+    margin-left: 10;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.apply {
+    color: $white;
+}

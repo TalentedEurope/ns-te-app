@@ -1,0 +1,64 @@
+@import 'app/css/variables';
+
+
+.contact-details {
+    margin-top: -11;
+    padding: 0;
+    text-align: center;
+    font-size: 15;
+}
+
+.contact-icon {
+    margin-left: 5;
+    margin-right: 5;
+    font-size: 15;
+
+}
+
+.btn-view-contact-details {
+    margin-top: 10;
+    background-color: transparent;
+    padding: 0;
+    width: 100%;
+    margin: 0;
+    border-color: transparent;
+    border-width: 1;
+}
+
+.contact-details-inner {
+    margin-top: 10;
+    padding: 15;
+    background-color: $light-gray;
+}
+
+.social {
+    margin-top: 10;
+    text-align: center;
+    
+    .social-icon {
+        height: 30;
+        width: 30;
+        text-align: center;
+        margin-left: 0;
+        margin-right: 20;
+        color: white;
+
+        &.facebook-icon {
+            background-color: #3b5998;
+        }
+
+        &.twitter-icon {
+            background-color: #13A4FF;
+        }
+
+        &.linkedin-icon {
+            background-color: #0077B5;
+        }
+
+        &.website-icon {
+            background-color: #e87a13;
+        }
+    }
+}
+
+

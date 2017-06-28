@@ -1,0 +1,19 @@
+<StackLayout row="0" orientation="vertical">
+    <StackLayout class="search-container">
+        <!-- Don't set up background color via css, it's broken on searchbar and NS crashes on android -->
+        <SearchBar backgroundColor="#ffffff" id="search-bar" [hint]="'landing.search_placeholder' | translate" text="" [(ngModel)]="searchText"
+            (loaded)="clearSearchBarFocus()" (clear)="onClear()" (submit)="onSubmit()" class="search-bar"></SearchBar>
+    </StackLayout>
+
+    <GridLayout>
+        <ListView #listView [items]="results.items" class="list-group" (loadMoreItems)="loadMoreResults()">
+            <ng-template let-item="item">
+                <GridLayout>
+                    <te-student-box *ngIf="collective === 'students'" [item]="item"></te-student-box>
+                    <te-company-box *ngIf="collective === 'companies'" [item]="item"></te-company-box>
+                    <te-institution-box *ngIf="collective === 'institutions'" [item]="item"></te-institution-box>
+                </GridLayout>
+            </ng-template>
+        </ListView>
+    </GridLayout>
+</StackLayout>

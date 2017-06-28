@@ -1,0 +1,8 @@
+<ActionBar [title]="'validators.manage_validators' | translate">
+</ActionBar>
+
+<te-side-drawer-page>
+    <GridLayout>
+        <WebView [src]="backendService.webUrl + 'validators?token=' + backendService.getToken()"></WebView>
+    </GridLayout>
+</te-side-drawer-page>

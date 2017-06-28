@@ -1,0 +1,55 @@
+<ActionBar [title]="'register.register' | translate">
+</ActionBar>
+
+<te-side-drawer-page>
+    <StackLayout class="form">
+    <ScrollView>
+        <StackLayout class="form-inner">
+            <Image class="logo" src="~/images/logo-white.png"></Image>
+
+            <Label *ngIf="seeMore" class="alert alert-warning" [text]="'reg-profile.to_see_more_details' | translate"></Label>
+
+            <Label class="label user-type-text" [text]="'register.i_am_a' | translate"  horizontalAlignment="center"></Label>
+            <StackLayout orientation="horizontal" horizontalAlignment="center" class="user-type">
+                <button [ngClass]="user.type == 'student' ? 'selected' : ''" [text]="'fa-user' | fonticon" class="fa" (tap)="selectType('student')"></button>
+                <button [ngClass]="user.type == 'institution' ? 'selected' : ''" [text]="'fa-university' | fonticon" class="fa" (tap)="selectType('institution')"></button>
+                <button [ngClass]="user.type == 'company' ? 'selected' : ''" [text]="'fa-building' | fonticon" class="fa" (tap)="selectType('company')"></button>
+            </StackLayout>
+            <Label *ngIf="user.type" class="label user-type-text" [text]=" 'global.' + user.type + '_singular' | translate"  horizontalAlignment="center"></Label>
+
+            <StackLayout class="input-field" *ngIf="showNameField()">
+                <Label *ngIf="errors?.name" class="error" [text]="errors?.name" textWrap="true"></Label>
+                <TextField [hint]="'reg-profile.name' | translate" class="input input-border" [(ngModel)]="user.name"></TextField>
+            </StackLayout>
+
+            <StackLayout class="input-field">
+                <Label *ngIf="errors?.email" class="error" [text]="errors?.email" textWrap="true"></Label>
+                <TextField [hint]="'reg-profile.email' | translate" class="input input-border" autocorrect="false" keyboardType="email" autocapitalizationType="none" [(ngModel)]="user.email"></TextField>
+            </StackLayout>
+
+            <StackLayout class="input-field">
+                <Label *ngIf="errors?.password" class="error" [text]="errors?.password" textWrap="true"></Label>
+                <TextField [hint]="'reg-profile.password' | translate" class="input input-border" secure="true" [(ngModel)]="user.password"></TextField>
+            </StackLayout>
+
+            <StackLayout class="input-field">
+                <Label *ngIf="errors?.confirm_password" class="error" [text]="errors?.confirm_password" textWrap="true"></Label>
+                <TextField [hint]="'reg-profile.confirm_password' | translate" class="input input-border" secure="true" [(ngModel)]="user.password_confirmation"></TextField>
+            </StackLayout>
+
+            <StackLayout class="input-field checkbox-area">
+                <Label *ngIf="errors?.terms" class="error" [text]="errors?.terms" textWrap="true"></Label>
+                <StackLayout orientation="horizontal">
+                    <CheckBox fillColor="#ffffff" text="" checked="false" [(ngModel)]="user.terms"></CheckBox>
+                    <Label verticalAlignment="center" class="terms-text" (tap)="toggleTerms()" [text]="('reg-profile.i_agree_with' | translate) + ' '"></Label>
+                    <Label verticalAlignment="center" class="link" (tap)="goToTermsPage()" [text]="'reg-profile.the_terms_of_use' | translate"></Label>
+                </StackLayout>
+            </StackLayout>
+
+            <Label *ngIf="errorTranslationKey" class="error" [text]="errorTranslationKey | translate" textWrap="true"></Label>
+
+            <Button class="btn btn-primary" [text]="'global.register_btn' | translate" (tap)="register()"></Button>
+        </StackLayout>
+    </ScrollView>
+    </StackLayout>
+</te-side-drawer-page>

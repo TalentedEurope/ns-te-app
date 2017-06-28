@@ -1,0 +1,21 @@
+@import 'app/css/variables';
+@import './register.component.scss';
+
+
+.user-type {
+    Button {
+        color: $white;
+        background-color: $blue;
+        font-size: 16;
+        padding: 5;
+        margin: 10 15;
+        height: 35;
+        width: 35;
+        border-radius: 100;
+    }
+}
+
+.checkbox-area {
+    margin-top: 5;
+    margin-bottom: 5
+}

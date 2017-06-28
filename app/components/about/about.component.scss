@@ -1,0 +1,59 @@
+@import 'app/css/variables';
+
+.cardStyle.blue {
+    background-color: $dark-blue; 
+}
+
+.title {
+    font-size: 20;
+    color: $dark-blue;
+    margin-bottom: 5;
+}
+
+.base {
+    background-image: url("~/images/background.png");
+    background-color: $light-gray;    
+    background-size: cover;
+}
+
+.content {
+    height: 100%;
+}
+
+.cardStyle {
+    width: 90%;
+}
+
+.cardStyle.outside {
+    transform:  translate(1000, -100)
+}
+
+.contents {
+    padding: 20;
+}
+
+.hr-light  {
+    margin-bottom: 20    
+}
+
+.partner-name {
+    font-size: 16;
+    margin-top: 30;
+    text-align: center;
+    text-decoration: underline;
+    color: $blue;
+}
+
+.slide-text {
+    margin-top: 10;
+    text-align: center;
+
+    label {
+        color: darken($dark-gray, 20%);
+    }
+}
+
+.funded-logo {
+    margin-bottom: 15;
+    width: 70%;
+}

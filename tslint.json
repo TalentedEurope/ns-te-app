@@ -1,0 +1,23 @@
+{
+  "rulesDirectory": [
+    "node_modules/codelyzer"
+  ],
+  "extends": ["angular-tslint-rules"],
+  "rules": {
+    "component-selector": [
+      true,
+      "element",
+      ["te"],
+      "kebab-case"
+    ],
+    "max-line-length": [true, 100],
+    "newline-before-return": false,
+    "no-console": [false],
+    "object-literal-key-quotes": [false],
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "typedef": [false]
+  }
+}

@@ -1,0 +1,72 @@
+@import 'app/css/variables';
+
+.error {
+    background-color: $red;
+    color: $white;
+    text-align: center;
+    padding: 10;
+    font-size: 14;
+}
+
+.icon {
+   font-family: 'FontAwesome', 'fontawesome-webfont';
+   font-size: 16;
+   color: $white;
+}
+
+.form {
+  background-color: #212E44;
+  background-image: url("~/images/background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+}
+
+.form-inner {
+  padding: 10 20;
+}
+
+.logo {
+  margin-top: 30;
+  margin-bottom: 45;
+  width: 40%;
+  height: auto;
+}
+
+.input-field .input {
+  padding: 10;
+  width: 100%;
+  border-color: $dark-gray;
+  border-width: 0 0 1 0; 
+  color: $white;
+  placeholder-color: $dark-gray;
+}
+
+.btn {
+  color: #F0F0F0;
+}
+
+.btn-primary.working {
+    background-color: transparent;
+    color: $white;
+    font-family: 'FontAwesome', 'fontawesome-webfont';
+    animation-iteration-count: infinite;
+    animation-name: pulse;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+
+.btn-primary {
+  background-color: #FCBD0F;
+  color: #333;
+  padding: 10;
+  margin-top: 20;
+}
+
+@keyframes pulse {
+    0% {transform: scale(1, 1); opacity: 1;}
+    50% {transform: scale(1.5, 1.5); opacity: 0.0;}
+    100% {transform: scale(1, 1); opacity: 1;}
+}

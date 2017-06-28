@@ -1,0 +1,26 @@
+<ActionBar title="">
+    <ActionItem *ngIf="showFilters()" (tap)="openFilters()" ios.position="right">
+      <Button [text]="'fa-filter' | fonticon" class="fa action-button"></Button>
+    </ActionItem>
+</ActionBar>
+
+<te-side-drawer-page [isMainPage]="true">
+    <GridLayout rows="*, auto">
+        <StackLayout row="0" orientation="vertical" [visibility]="isContentVisible ? 'visible' : 'collapsed'">
+            <te-home *ngIf="home" (finishLoad$)="onFinishLoad($event)" (search$)="onHomeSearch($event)"></te-home>
+            <te-search *ngIf="!home" (finishLoad$)="onFinishLoad($event)"
+                [searchText]="searchText" [collective]="collective"></te-search>
+        </StackLayout>
+
+        <GridLayout row="0" class="loader-container" [visibility]="isContentVisible ? 'collapsed' : 'visible'">
+            <ActivityIndicator width="35" height="35" [busy]="!isContentVisible" class="loader">
+            </ActivityIndicator>
+        </GridLayout>
+
+
+        <BottomBar row="1" [items]="bottomBarItems" [hide]="hidden" [titleState]="titleState"
+            (tabSelected)="tabSelected($event)" (loaded)="tabLoaded($event)" colored="true"
+            inactiveColor="#F0F0F0" accentColor="#ffffff" uncoloredBackgroundColor="black">
+        </BottomBar>
+    </GridLayout>
+</te-side-drawer-page>

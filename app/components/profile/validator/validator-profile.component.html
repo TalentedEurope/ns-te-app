@@ -1,0 +1,33 @@
+<ActionBar [title]="'reg-profile.profile' | translate">
+</ActionBar>
+
+<StackLayout class="profile-details">
+    <ScrollView id="scrollView">
+        <StackLayout *ngIf="user">
+            <StackLayout class="profile-section header">
+                <Label [text]="user.name + ' ' + user.surname" class="profile-title" textWrap="true"></Label>
+                <Label [text]="user.userable.institution.user.name" class="profile-subtitle" textWrap="true"></Label>
+            </StackLayout>
+
+            <StackLayout class="hr-light"></StackLayout>
+
+            <StackLayout class="cardStyle">
+                <StackLayout class="profile-section">
+                    <GridLayout rows="*" columns="auto,*">
+                        <StackLayout col="0" class="section-title-icon" verticalAlignment="middle">
+                            <Label [text]="'fa-users' | fonticon" class="fa"></Label>
+                        </StackLayout>
+                        <Label col="1" [text]="'reg-profile.refereed_students' | translate" class="section-title"></Label>
+                    </GridLayout>
+                    <StackLayout class="hr-light"></StackLayout>
+                    <WrapLayout *ngIf="user.students?.length > 0" orientation="horizontal">
+                        <Label *ngFor="let student of user.students" class="tag gray blue-text" [text]="student.name" (tap)="goToStudentProfile(student.id)"></Label>
+                    </WrapLayout>
+
+                    <Label *ngIf="!(user.students?.length > 0)" [text]="'reg-profile.no_refereed_students' | translate" class="m-b-2"></Label>
+
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</StackLayout>

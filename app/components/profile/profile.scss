@@ -1,0 +1,66 @@
+@import 'app/css/variables';
+
+.profile-section {
+    padding: 15;
+}
+
+.photo {
+    width: 140;
+    margin-bottom: 10;
+}
+
+.profile-title {
+    text-align: center;
+    font-size: 18;
+    color: $white;
+    font-size: 26;
+    margin-bottom: 5;
+    font-weight: 100;
+    font-family: 'TitilliumWeb-ExtraLight','Titillium Web', 'Titillium';
+}
+
+.profile-subtitle {
+    text-align: center;
+    font-size: 15;
+    font-weight: 400;
+    color: $white;
+    padding: 5;
+    font-family: 'TitilliumWeb-Regular','Titillium Web', 'Titillium';
+    margin-bottom: 15;
+    color: $yellow;
+}
+
+.profile-details {
+    background-color: $light-gray;
+    min-height: 100%;
+    .header {
+        background-color: $dark-blue;
+        background-image: url("~/images/student-background.png");
+        background-size: cover;
+        background-position: center;
+        
+    }
+}
+
+
+.section-title-icon {
+    background-color: $blue;
+    font-size: 16;
+    width: 32;
+    height: 32;
+    text-align: center;
+    margin-right: 10;
+    margin-bottom: 10;
+    border-radius: 24;
+    color: white;
+}
+
+.section-title {
+    font-size: 20;
+    font-weight: 500;
+    margin-bottom: 10;
+}
+
+.hr-light {
+    margin-bottom: 10;
+}

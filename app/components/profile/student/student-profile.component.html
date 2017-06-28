@@ -1,0 +1,240 @@
+<ActionBar [title]="'reg-profile.profile' | translate">
+</ActionBar>
+
+<te-side-drawer-page>
+    <StackLayout>
+        <ScrollView id="scrollView">
+            <StackLayout *ngIf="user" class="profile-details">
+                <StackLayout class="profile-section header">
+                    <Image class="photo" [src]="backendService.webUrl + 'uploads/photo/' + user.image"></Image>
+                    <Label [text]="user.name + ' ' + user.surname" textWrap="true" class="profile-title"></Label>
+                    <Label [text]="mainStudy.name" textWrap="true" class="profile-subtitle"></Label>
+                    <te-contact-details [user]="user"></te-contact-details>
+                </StackLayout>
+
+                <StackLayout class="cardStyle">
+                    <StackLayout class="profile-section">
+                        <GridLayout rows="*" columns="auto,*">
+                            <StackLayout col="0" class="section-title-icon" verticalAlignment="middle">
+                                <Label [text]="'fa-info' | fonticon" class="fa"></Label>
+                            </StackLayout>
+                            <Label col="1" [text]="'reg-profile.about' | translate" class="section-title"></Label>
+                        </GridLayout>
+                        <StackLayout class="hr-light"></StackLayout>
+                        <StackLayout orientation="Horizontal" class="icon-title" >
+                            <Label [text]="'fa-graduation-cap' | fonticon" class="fa fa-graduation-cap"></Label>
+                            <Label [text]="('reg-profile.education' | translate) + ':'" class="font-weight-semibold"></Label>
+                        </StackLayout>
+                        <Label [text]="mainStudy.name + ' ' + ('reg-profile.at' | translate) + ' ' + mainStudy.institution_name" textWrap="true"></Label>
+
+                        <StackLayout orientation="Horizontal" class="icon-title" >
+                            <Label [text]="'fa-map-marker' | fonticon" class="fa"></Label>
+                            <Label [text]="('reg-profile.lives_in' | translate) + ':'" class="m-t-5 font-weight-semibold"></Label>
+                        </StackLayout>
+                        <Label [text]="user.city + ', ' + ('global.' + user.country | translate)" textWrap="true"></Label>
+
+                        <StackLayout orientation="Horizontal" class="icon-title" >
+                            <Label [text]="'fa-flag-o' | fonticon" class="fa"></Label>
+                            <Label [text]="('reg-profile.nationality' | translate) + ':'" class="m-t-5 font-weight-semibold"></Label>
+                        </StackLayout>
+                        <Label [text]="'global.' + user.userable.nationality | translate" textWrap="true"></Label>
+
+                        <StackLayout orientation="Horizontal" class="icon-title" >
+                            <Label [text]="'fa-calendar' | fonticon" class="fa"></Label>
+                            <Label [text]="('reg-profile.born_on' | translate) + ':'" class="m-t-5 font-weight-semibold"></Label>
+                        </StackLayout>
+
+                        <Label [text]="user.userable.birthdate | date: 'dd/MM/yyyy'" textWrap="true"></Label>
+
+                        <StackLayout orientation="Horizontal" class="icon-title" >
+                            <Label [text]="'fa-lightbulb-o' | fonticon" class="fa"></Label>
+                            <Label [text]="('reg-profile.my_talent' | translate) + ':'" class="m-t-5 font-weight-semibold"></Label>
+                        </StackLayout>
+
+                        <Label [text]="user.userable.talent" textWrap="true"></Label>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout class="cardStyle" *ngIf="user.userable.valid === 'validated'">
+                    <StackLayout class="profile-section">
+                        <StackLayout>
+                            <GridLayout rows="*" columns="auto,*">
+                                <Label col="0" [text]="'fa-star' | fonticon" class="fa validator-star"></Label>
+                                <Label col="1" [text]="('reg-profile.refereed_by' | translate) + ':'" class="section-title font-weight-semibold"></Label>
+                            </GridLayout>
+                            <StackLayout class="hr-light"></StackLayout>
+                            <WrapLayout orientation="horizontal">
+                                <Label [text]="user.validator.user.name + ' ' + user.validator.user.surname + '   '" class="link"  textWrap="true" (tap)="goToValidatorProfile(user.validator.user.id)"></Label>
+                                <StackLayout verticalAlignment="middle">
+                                    <Label [text]="('fa-calendar' | fonticon) + ' '" class="fa validation-date-icon"></Label>
+                                </StackLayout>
+                                <Label [text]="validationDate | date: 'dd/MM/yyyy'"></Label>
+                            </WrapLayout>
+                            <Label [text]="user.userable.validation_comment" textWrap="true" class="validation-comment alert alert-info"></Label>
+                        </StackLayout>
+                        <StackLayout *ngIf="user.userable.valid !== 'validated'">
+                            <Label [text]="('reg-profile.refereeing_pending' | translate)" class="font-weight-semibold"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout class="cardStyle">
+                    <StackLayout class="profile-section">
+                        <GridLayout rows="*" columns="auto,*">
+                            <StackLayout col="0" class="section-title-icon" verticalAlignment="middle">
+                                <Label [text]="'fa-cogs' | fonticon" class="fa"></Label>
+                            </StackLayout>
+                            <Label col="1" [text]="'reg-profile.skills' | translate" class="section-title"></Label>
+                        </GridLayout>
+                        <StackLayout class="hr-light"></StackLayout>
+                        <Label *ngIf="user.userable.professional_skills?.length > 0" [text]="('reg-profile.professional' | translate) + ':'" class="m-b-2 block-title font-weight-semibold"></Label>
+                        <WrapLayout orientation="horizontal">
+                            <Label *ngFor="let skill of user.userable.professional_skills" class="tag blue" [text]="skill.name"></Label>
+                        </WrapLayout>
+
+                        <Label *ngIf="user.userable.personal_skills?.length > 0" [text]="('reg-profile.personal' | translate) + ':'" class="m-t-5 m-b-2 block-title font-weight-semibold"></Label>
+                        <WrapLayout orientation="horizontal">
+                            <Label *ngFor="let skill of user.userable.personal_skills" class="tag blue" [text]="skill.name"></Label>
+                        </WrapLayout>
+
+                        <Label [text]="('reg-profile.legend' | translate)" class="m-t-5 font-weight-semibold block-title"></Label>
+                        <GridLayout rows="*" columns="auto,*">
+                            <Label col="0" text="" class="legend-indicator important"></Label>
+                            <Label col="1" [text]="('reg-profile.set_by_both_parties' | translate)" textWrap="true"></Label>
+                        </GridLayout>
+                        <GridLayout rows="*" columns="auto,*">
+                            <Label col="0" text="" class="legend-indicator"></Label>
+                            <Label col="1" [text]="('reg-profile.set_by_referee_or_student' | translate)" textWrap="true"></Label>
+                        </GridLayout>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout class="cardStyle" *ngIf="user.userable.studies?.length > 0">
+                <StackLayout class="profile-section">
+                    <GridLayout rows="*" columns="auto,*">
+                        <StackLayout col="0" class="section-title-icon" verticalAlignment="middle">
+                            <Label [text]="'fa-graduation-cap' | fonticon" class="fa"></Label>
+                        </StackLayout>
+                        <Label col="1" [text]="('reg-profile.study' | translate).split('|')[1]" class="section-title"></Label>
+                    </GridLayout>
+                    <StackLayout class="hr-light"></StackLayout>
+
+                    <StackLayout>
+                        <StackLayout class="profile-feature" *ngFor="let study of user.userable.studies" orientation="vertical">
+                            <Label [text]="'fa-circle' | fonticon" class="fa ball"></Label>
+                            <StackLayout class="inner">
+                            <Label textWrap="true" class="extra-text" *ngIf="study.field">
+                                <FormattedString>
+                                    <Span [text]="study.field + ' - '"></Span>
+                                    <Span [text]="study.institution_name"></Span>
+                                </FormattedString>
+                            </Label>
+                            <Label class="extra-text" *ngIf="!study.field">
+                                <FormattedString>
+                                    <Span [text]="study.institution_name"></Span>
+                                </FormattedString>
+                            </Label>
+                            <Label textWrap="true" class="main-text">
+                                <FormattedString>
+                                    <Span [text]="study.name + ' | '"></Span>
+                                    <Span [text]="study.level"></Span>
+                                </FormattedString>
+                            </Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                </StackLayout>
+
+                <StackLayout class="cardStyle" *ngIf="user.userable.training?.length > 0">
+                <StackLayout class="profile-section">
+                    <GridLayout rows="*" columns="auto,*">
+                        <StackLayout col="0" class="section-title-icon" verticalAlignment="middle">
+                            <Label [text]="'fa-trophy' | fonticon" class="fa"></Label>
+                        </StackLayout>
+                        <Label col="1" [text]="'reg-profile.student_training' | translate" class="section-title"></Label>
+                    </GridLayout>
+                    <StackLayout class="hr-light"></StackLayout>
+
+                    <StackLayout>
+                        <StackLayout class="profile-feature" *ngFor="let training of user.userable.training" orientation="vertical">
+                            <Label [text]="'fa-circle' | fonticon" class="fa ball"></Label>
+                            <StackLayout class="inner">
+                                <Label textWrap="true" class="extra-text">
+                                    <FormattedString>
+                                        <Span [text]="getYear(training.date)"></Span>
+                                    </FormattedString>
+                                </Label>
+                                <Label textWrap="true" class="main-text">
+                                    <FormattedString>
+                                        <Span [text]="training.name"></Span>
+                                    </FormattedString>
+                                </Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                </StackLayout>
+
+
+                <StackLayout class="cardStyle"   *ngIf="user.userable.languages?.length > 0">
+                <StackLayout class="profile-section">
+                    <GridLayout rows="*" columns="auto,*">
+                        <StackLayout col="0" class="section-title-icon" verticalAlignment="middle">
+                            <Label [text]="'fa-language' | fonticon" class="fa"></Label>
+                        </StackLayout>
+                        <Label col="1" [text]="'reg-profile.student_languages' | translate" class="section-title"></Label>
+                    </GridLayout>
+                    <StackLayout class="hr-light"></StackLayout>
+
+                    <WrapLayout orientation="horizontal" class="m-t-2">
+                        <Label *ngFor="let language of user.userable.languages" class="tag gray" [text]="language.name + '  |  ' + language.level"></Label>
+                    </WrapLayout>
+                </StackLayout>
+                </StackLayout>
+
+
+
+
+                <StackLayout class="cardStyle" *ngIf="user.userable.experiences?.length > 0">
+                <StackLayout class="profile-section">
+                    <GridLayout rows="*" columns="auto,*">
+                        <StackLayout col="0" class="section-title-icon" verticalAlignment="middle">
+                            <Label [text]="'fa-suitcase' | fonticon" class="fa"></Label>
+                        </StackLayout>
+                        <Label col="1" [text]="'reg-profile.student_work_experience' | translate" class="section-title"></Label>
+                    </GridLayout>
+                    <StackLayout class="hr-light"></StackLayout>
+
+                    <StackLayout>
+                        <StackLayout class="profile-feature" *ngFor="let experience of user.userable.experiences" orientation="vertical">
+                                <Label [text]="'fa-circle' | fonticon" class="fa ball"></Label>
+                                <StackLayout class="inner">
+                                    <Label textWrap="true" class="extra-text" *ngIf="experience.until !== '0000-00-00'" >
+                                        <FormattedString>
+                                            <Span [text]="getYear(experience.from) + '-' + getYear(experience.until)"></Span>
+                                        </FormattedString>
+                                    </Label>
+
+                                    <Label textWrap="true" class="extra-text" *ngIf="experience.until === '0000-00-00'" >
+                                        <FormattedString>
+                                            <Span [text]="getYear(experience.from)"></Span>
+                                        </FormattedString>
+                                    </Label>
+
+                                    <Label textWrap="true" class="main-text">
+                                        <FormattedString>
+                                            <Span [text]="experience.position + ' ' + ('reg-profile.at' | translate) + ' ' + experience.company"></Span>
+                                        </FormattedString>
+                                    </Label>
+                                </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                </StackLayout>
+
+
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</te-side-drawer-page>

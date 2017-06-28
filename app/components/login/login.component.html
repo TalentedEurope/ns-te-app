@@ -1,0 +1,29 @@
+<ActionBar [title]="'login.login_title' | translate">
+</ActionBar>
+
+<te-side-drawer-page>
+    <StackLayout class="form">
+        <ScrollView>
+            <StackLayout class="form-inner">
+                <Image class="logo" src="~/images/logo-white.png"></Image>
+
+                <Label *ngIf="errorTranslationKey" class="error" [text]="errorTranslationKey | translate" textWrap="true"></Label>
+
+                <StackLayout class="input-field" orientation="horizontal">
+                    <Label [text]="'fa-envelope-open-o' | fonticon" class="fa icon"></Label>
+                    <TextField [hint]="'reg-profile.email' | translate"  class="input input-border" autocorrect="false" keyboardType="email" autocapitalizationType="none" [(ngModel)]="email"></TextField>
+                </StackLayout>
+                <StackLayout class="input-field" orientation="horizontal">
+                    <Label [text]="'fa-lock' | fonticon" class="fa icon"></Label>
+                    <TextField [hint]="'reg-profile.password' | translate" class="input input-border" secure="true" [(ngModel)]="password"></TextField>
+                </StackLayout>
+
+                <Button [ngClass]="{'working': working }" class="btn btn-primary" [text]="working ? '&#xf192;' : 'login.login_btn' | translate" (tap)="login()"></Button>
+
+                <Button class="btn btn-secondary" [text]="'reg-profile.forgot_password' | translate"></Button>
+
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+
+</te-side-drawer-page>

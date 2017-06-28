@@ -1,0 +1,8 @@
+@import 'app-common';
+@import '~nativescript-theme-core/scss/platforms/index.android';
+
+.action-button {
+    background-color: transparent;
+    border-color: transparent;
+    border-width: 1;
+}

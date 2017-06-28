@@ -1,0 +1,97 @@
+@import 'app/css/variables';
+
+
+.profile-details {
+
+    .header {
+        background-color: $dark-blue;
+        background-image: url("~/images/student-background.png");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        
+    }
+
+    .photo {
+        border-radius: 100;
+        border-color: $light-gray;
+        padding: -6;
+        border-width: 3;
+        margin-bottom: 15;
+    }
+
+    .icon-title {
+        font-size: 16;
+
+        .fa {
+            color: $blue;
+            padding-right: 5;
+        }
+
+        .font-weight-semibold {
+            color: #000;
+            font-weight: bold;
+        }
+    }
+
+    .validator-star {
+        margin-top: 3;
+        font-size: 20;
+        margin-right: 3;
+        color: $yellow;
+    }
+
+    .validation-date-icon {
+        font-size: 12;
+    }
+
+    .validation-comment {
+        margin-top: 10;
+        margin-bottom: 5;
+    }
+
+    .legend-indicator {
+        width: 15;
+        height: 15;
+        margin-top: 3;
+        margin-right: 8;
+        background-color: $blue;
+        vertical-align: top;
+
+        &.important {
+            background-color: $gold;
+        }
+    }
+}
+
+.profile-feature {
+    .inner {
+        border-left-color: $blue;
+        border-left-width: 1;
+        padding-left: 20;
+        margin-left: 8;        
+    }
+
+    .main-text {
+        margin-top: 8;
+        margin-bottom: 16;
+        color: $black;
+        font-size: 16;
+    }
+
+    .extra-text {
+        color: $text-gray;
+        font-size: 14;
+        font-style: italic;
+    }
+
+    .ball {
+        padding-bottom: 5;
+        color: $blue;
+        padding-left: 1;
+        margin-left: -3;
+        margin-top: 10;
+        background-color: transparent;
+        margin-bottom: -31;
+    }
+}

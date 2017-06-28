@@ -1,0 +1,86 @@
+@import 'app/css/variables';
+
+.loader {
+    color: $blue;
+}
+
+.main-content {
+    background-color: $light-gray;
+}
+
+.side-drawer.Right {
+
+    .cardStyle {
+        border-width: 0;
+        margin: 0;
+        width: 100%;
+    }
+}
+
+.side-drawer {
+    background-color: $light-gray;
+    color: $black;
+    text-align: left;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+
+    .cardStyle {
+        border-width: 0;
+        padding: 0;
+        margin: 0;
+        border-color: transparent;
+        background-color: $light-gray; 
+    }
+
+    .header {
+        padding-top: 30;        
+        background-color: $dark-blue;
+        background-image: url("~/images/background.png");
+        background-size: cover; 
+        color: $white;
+        text-align: center;
+    }
+
+
+    .user-photo {        
+        width: 80;
+        border-radius: 120;
+        border-color: $light-gray;
+        padding: -6;
+        border-width: 2;
+    }  
+
+    .user-logo {
+        width: 100;
+    }
+
+    .side-te-logo {
+        height: 50;
+        margin-top: 15;
+        margin-bottom: 15;
+        margin-right: 20;
+    }
+
+    .side-label {
+        padding: 10 30 15 30;
+        font-size: 16;
+
+        .fa {
+            color: $blue;            
+        }
+    }
+
+    .hr-dark {
+        background-color: darken($light-gray,10%);
+        padding: 0;
+        margin: 0;
+    }
+
+    .link-image {
+        margin-top: 25;
+        width: 60%;
+        margin-bottom: 15;
+    }
+}

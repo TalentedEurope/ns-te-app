@@ -1,0 +1,26 @@
+@import 'app/css/variables';
+@import './student-profile.component.scss';
+
+.profile-details {
+    .icon-title {
+        padding-top: 3;
+        padding-bottom: 3;
+
+        .fa.fa-graduation-cap {
+            padding-top: 4;
+        }
+
+        .fa {
+            padding-top: 8;
+            padding-right: 8;
+        }
+    }
+}
+
+.block-title {
+    color: $black;
+}
+
+.section-title {
+    color: $black;
+}

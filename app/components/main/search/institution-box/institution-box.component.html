@@ -1,0 +1,34 @@
+<StackLayout class="cardStyle" (tap)="pass()">
+<StackLayout class="list-group-item">
+    <StackLayout class="details">
+        <StackLayout class="page-header" orientation="horizontal">
+            <Image class="logo img-circle" [src]="item.photo"></Image>
+            <StackLayout class="page-header">
+                <Label [text]="item.name" class="profile-title font-weight-semibold" textWrap="true"></Label>
+                <Label [text]="item.type | translate" class="profile-subtitle" textWrap="true"></Label>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout class="hr-light separator"></StackLayout>
+
+        <Label textWrap="true">
+            <FormattedString>
+                <Span [text]="('reg-profile.we_are_in' | translate) + ': '" class="m-t-5 font-weight-semibold"></Span>
+                <Span [text]="item.we_are_in" fontAttributes="Bold"></Span>
+            </FormattedString>
+        </Label>
+
+        <Label *ngIf="validators?.length > 0" [text]="('validators.validators' | translate) + ':'" class="m-t-5 font-weight-semibold"></Label>
+
+        <Label *ngIf="validators?.length > 0" [text]="('validators.validators' | translate) + ':'" class="m-t-5 m-b-2 font-weight-semibold"></Label>
+        <WrapLayout orientation="horizontal">
+            <Label *ngFor="let validator of validators" class="validator-tag" [text]="validator.full_name"></Label>
+        </WrapLayout>
+
+    </StackLayout>
+
+</StackLayout>
+</StackLayout>
+
+
+

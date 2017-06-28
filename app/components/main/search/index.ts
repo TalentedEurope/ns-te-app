@@ -1,0 +1,7 @@
+export * from './search.component'
+export * from './student-box/student-box.component'
+export * from './company-box/company-box.component'
+export * from './institution-box/institution-box.component'
+export * from './search.service'
+export * from './shared/filters'
+export * from '../home/home.component'

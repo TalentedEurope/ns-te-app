@@ -1,0 +1,11 @@
+.vscode
+.nsbuildinfo
+key-store.jks
+app/**/*.js
+!app/shared/notifications/*.js
+app/*.css
+app/shared/**/*.css
+app/components/**/*.css
+hooks/
+node_modules/
+platforms/

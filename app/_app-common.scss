@@ -1,0 +1,102 @@
+// Import the theme’s variables. If you’re using a color scheme
+// other than “light”, switch the path to the alternative scheme,
+// for example '~nativescript-theme-core/scss/dark'.
+@import '~nativescript-theme-core/scss/light';
+
+// Customize any of the theme’s variables here, for instance $btn-color: red;
+@import './css/variables';
+$btn-color: $blue;
+
+// Import the theme’s main ruleset.
+@import '~nativescript-theme-core/scss/index';
+
+
+ActionBar {
+    background-color: $dark-blue;
+    color: white;
+}
+
+Page {
+    font-family: $font-stack;
+}
+
+.fa {
+    font-family: FontAwesome, fontawesome-webfont;
+}
+
+.fafw {
+    font-family: FontAwesomeFW, fontawesome-webfontfontawesomefw-webfont;
+}
+
+.font-weight-semibold {
+    font-weight: 600;
+}
+
+.link {
+    color: $blue;
+}
+
+.alert {
+    font-size: 15;
+    padding: 9 12;
+
+    &.alert-warning {
+        background-color: $warning-bg;
+        color: $warning-text;
+    }
+
+    &.alert-info {
+        background-color: $info-bg;
+        color: $info-text;
+    }
+}
+
+
+.tag {
+    font-size: 14;
+    padding: 3 6 4 6;
+    margin-right: 5;
+    margin-bottom: 5;
+    border-radius: $border-radius;
+
+    &.dark {
+        color: white;
+        background-color: $dark-blue;
+    }
+
+    &.blue {
+        color: white;
+        background-color: $blue;
+    }
+
+    &.gray {
+        color: $dark-blue;
+        background-color: $light-gray;
+    }
+
+    &.gold {
+        color: white;
+        background-color: $gold;
+    }
+
+    &.blue-text {
+        color: $blue;
+    }
+}
+
+.blue-color {
+    color: $blue;
+}
+
+.yellow-color {
+    color: $yellow;
+}
+
+.cardStyle {
+    font-size: 15;
+    margin: 5;
+    background-color: $white;
+    border-width: 1;
+    border-color: rgba(161, 161, 161, 0.4);
+
+}

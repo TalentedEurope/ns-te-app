@@ -1,0 +1,99 @@
+<ActionBar [title]="'global.about_us' | translate">
+</ActionBar>
+
+<StackLayout class="base">
+    <StackLayout class="content" verticalAlignment="center">
+        <AbsoluteLayout horizontalAlignment="center" paddingTop="30" id="absolutelayout">    
+            <StackLayout class="cardStyle" (swipe)="onCardSwipe($event)" radius="10">
+                <StackLayout>
+                    <Image src="~/images/slide1.png"></Image>
+                    <StackLayout class="contents">
+                        <Label class="title" [text]="'landing.what_is_title' | translate" textWrap="true"></Label>
+                        <Label textWrap="true" [text]="'landing.what_is_text_1_txt' | translate"></Label>                    
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout class="cardStyle outside" (swipe)="onCardSwipe($event)" radius="10">
+                <StackLayout>
+                    <Image src="~/images/slide2.png"></Image>
+                    <StackLayout class="contents">
+                        <Label class="title" [text]="'landing.what_is_title' | translate" textWrap="true"></Label>
+                        <Label textWrap="true" [text]="'landing.what_is_text_2_txt' | translate"></Label>                    
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout class="cardStyle outside" (swipe)="onCardSwipe($event)" radius="10">
+                <StackLayout>
+                    <StackLayout class="contents">
+                        <Label class="title" [text]="'global.footer_partners' | translate" textWrap="true"></Label>
+                        <StackLayout class="hr-light"></StackLayout>
+                        <Image class="logo" src="~/images/logo-cifpcesar.png"></Image>
+                        <Label (tap)="openUrl('http://cifpcesarmanrique.es/')" class="partner-name" text="CIFP César Manrique" textWrap="true"></Label>                        
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>            
+            
+            <StackLayout class="cardStyle outside" (swipe)="onCardSwipe($event)" radius="10">
+                <StackLayout>
+                    <StackLayout class="contents">
+                        <Label class="title" [text]="'global.footer_partners' | translate" textWrap="true"></Label>
+                        <StackLayout class="hr-light"></StackLayout>
+                        <Image src="~/images/logo-iespto.png"></Image>
+                        <Label (tap)="openUrl('http://erasmusplus.iespuertodelacruz.es/')" class="partner-name" text="IES Puerto de la Cruz Telesforo Bravo" textWrap="true"></Label>                        
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout class="cardStyle outside" (swipe)="onCardSwipe($event)" radius="10">
+                <StackLayout>
+                    <StackLayout class="contents">
+                        <Label class="title" [text]="'global.footer_partners' | translate" textWrap="true"></Label>
+                        <StackLayout class="hr-light"></StackLayout>
+                        <Image style="width: 120" src="~/images/logo-epa.png"></Image>
+                        <Label (tap)="openUrl('http://europeanprojects.org/')" class="partner-name" text="European Projects Association" textWrap="true"></Label>                        
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout class="cardStyle outside" (swipe)="onCardSwipe($event)" radius="10">
+                <StackLayout>
+                    <StackLayout class="contents">
+                        <Label class="title" [text]="'global.footer_partners' | translate" textWrap="true"></Label>
+                        <StackLayout class="hr-light"></StackLayout>
+                        <Image src="~/images/logo-tuke.png"></Image>
+                        <Label (tap)="openUrl('http://web.tuke.sk/kj/english_version.htm')" class="partner-name" text="Technical University of Košice" textWrap="true"></Label>                        
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout class="cardStyle outside" (swipe)="onCardSwipe($event)" radius="10">
+                <StackLayout>
+                    <StackLayout class="contents">
+                        <Label class="title" [text]="'global.footer_partners' | translate" textWrap="true"></Label>
+                        <StackLayout class="hr-light"></StackLayout>
+                        <Image style="width: 160" src="~/images/logo-ubbs.png"></Image>
+                        <Label (tap)="openUrl('https://www.beds.ac.uk/')"  class="partner-name" text="University of Bedfordshire" textWrap="true"></Label>                        
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout class="cardStyle blue outside" (swipe)="onCardSwipe($event)" radius="10">
+                <StackLayout>
+                    <StackLayout class="contents">
+                        <Image class="funded-logo" src="~/images/logo-footer-cofunded-ue.png"></Image>
+                        <Image class="funded-logo" src="~/images/logo-footer-erasmus.png"></Image>
+                        <Image class="funded-logo" src="~/images/logo-footer-sepie.png"></Image>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
+
+        <StackLayout orientation="horizontal" class="slide-text" horizontalAlignment="center">
+            <Label class="fa title" horizontalAlignment="center" [text]="'fa-hand-o-up' | fonticon" textWrap="true"></Label>
+            <Label class="title" horizontalAlignment="center" [text]="'global.slide_to' | translate"></Label>
+        </StackLayout>
+
+    </StackLayout>
+</StackLayout>

@@ -1,0 +1,39 @@
+<StackLayout class="cardStyle">
+    
+<StackLayout class="list-group-item" (tap)="goToProfile()" >
+    <StackLayout class="details">
+        
+
+        <StackLayout class="page-header" orientation="horizontal">
+            <Image class="logo img-circle" [src]="item.photo"></Image>
+            <StackLayout class="page-header">
+                <Label [text]="item.name" class="profile-title font-weight-semibold" textWrap="true"></Label>
+                <Label [text]="item.info" class="profile-subtitle" textWrap="true"></Label>
+            </StackLayout>
+        </StackLayout>
+
+
+        <StackLayout class="hr-light separator"></StackLayout>
+
+        <Label textWrap="true">
+            <FormattedString>
+                <Span [text]="('reg-profile.we_are_in' | translate) + ': '" class="m-t-5 font-weight-semibold"></Span>
+                <Span [text]="item.we_are_in" fontAttributes="Bold"></Span>
+            </FormattedString>
+        </Label>
+
+        <Label *ngIf="skills?.length > 0" [text]="('reg-profile.skilled_in' | translate) + ':'" class="m-t-5 m-b-2 font-weight-semibold"></Label>
+        <WrapLayout orientation="horizontal">
+            <Label *ngFor="let skill of skills" class="tag dark" [text]="skill.name"></Label>
+        </WrapLayout>
+
+        <Label *ngIf="item.talent_is !== ''" [text]="('reg-profile.we_think_that_talent_is' | translate) + ':'" class="m-t-5 font-weight-semibold"></Label>
+        <Label *ngIf="item.talent_is !== ''" [text]="item.talent_is" textWrap="true"></Label>
+
+    </StackLayout>
+
+</StackLayout>
+</StackLayout>
+
+
+

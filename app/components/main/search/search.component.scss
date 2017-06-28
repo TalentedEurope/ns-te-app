@@ -1,0 +1,64 @@
+@import 'app/css/variables';
+
+.results-info {
+    color: white;
+    background-color: $dark-blue;
+    padding: 8 11;
+    font-size: 15;
+    text-align: center;
+}
+
+.search-container {
+    color: $black;
+    border-width: 10;   
+    background-color: #ffffff;
+    border-color: $dark-blue;
+}
+
+
+.list-group >>> {
+
+    background-color: $light-gray;
+    separator-color: $light-gray;
+
+    .profile-title {
+        font-size: 22;
+        font-weight: bold;  
+        margin-bottom: 5;  
+    }
+
+    .thumb {
+        width: 40;
+        height: 40;
+    }
+
+    .profile-subtitle {
+        font-style: italic;
+        color: $text-gray;
+        margin-bottom: 10;
+    }
+
+    .hr-light.separator {
+        margin-bottom: 15;
+    }
+
+    .logo {
+        width: 55;
+        margin-right: 5;
+    }
+
+    .details {
+        background-color: white;
+        horizontal-align: stretch;
+    }
+
+    .details * {
+        horizontal-align: left;
+    }
+
+    .h3 {
+        width: 100%;
+        font-size: 20;
+        margin-bottom: 0;
+    }
+}

@@ -1,0 +1,31 @@
+<StackLayout class="form">
+<ScrollView>
+    <StackLayout class="form-inner">
+        <Image class="logo" src="~/images/logo-white.png"></Image>
+
+        <StackLayout orientation="horizontal" horizontalAlignment="center">
+            <Button [ngClass]="translate.currentLang === lang ? 'selected' : ''" class="lang-btn" *ngFor="let lang of ['de', 'en', 'es', 'fr', 'it', 'sk']" [text]="lang" (tap)="setLang(lang)"></Button>
+        </StackLayout>
+
+        <StackLayout class="cardStyle">
+        <StackLayout class="search-box">
+            <TextField [hint]="'landing.search_placeholder' | translate" [(ngModel)]="searchText"></TextField>
+
+            <Label *ngIf="userType" class="label user-type-text" [text]=" 'global.' + userType | translate"  horizontalAlignment="center"></Label>
+            <StackLayout orientation="horizontal" horizontalAlignment="center" class="user-type">
+                <button [ngClass]="userType == 'students' ? 'selected' : ''" [text]="'fa-user' | fonticon" class="fa" (tap)="selectType('students')"></button>
+                <button [ngClass]="userType == 'institutions' ? 'selected' : ''" [text]="'fa-university' | fonticon" class="fa" (tap)="selectType('institutions')"></button>
+                <button [ngClass]="userType == 'companies' ? 'selected' : ''" [text]="'fa-building' | fonticon" class="fa" (tap)="selectType('companies')"></button>
+            </StackLayout>
+
+            <Button class="search btn btn-primary" [text]="'landing.search_btn' | translate" (tap)="search()"></Button>
+        </StackLayout>
+        </StackLayout>
+
+        <StackLayout>
+            <Button (tap)="about()" col="0" class="btn btn-primary btn-multiline" [text]="'global.about_us' | translate"></Button>
+            <Button (tap)="openUrl(this.backendService.webUrl+'/privacy-policy')" col="1" class="btn btn-primary btn-multiline" [text]="'global.privacy_policy' | translate"></Button>            
+        </StackLayout>
+    </StackLayout>
+</ScrollView>
+</StackLayout>

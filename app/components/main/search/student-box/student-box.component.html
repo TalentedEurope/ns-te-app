@@ -1,0 +1,36 @@
+<StackLayout class="cardStyle">
+
+<StackLayout class="list-group-item" (tap)="goToProfile()" >
+    <StackLayout class="details">
+
+        <StackLayout class="page-header" orientation="horizontal">
+            <Image class="thumb img-circle" [src]="item.photo"></Image>
+            <StackLayout class="page-header">
+                <Label [text]="item.full_name" class="profile-title font-weight-semibold" textWrap="true"></Label>
+                <Label [text]="item.studied" class="profile-subtitle" textWrap="true"></Label>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout class="hr-light separator"></StackLayout>
+
+        <Label textWrap="true">
+            <FormattedString>
+                <Span [text]="('reg-profile.lives_in' | translate) + ': '" class="m-t-5 font-weight-semibold"></Span>
+                <Span [text]="item.lives_in" fontAttributes="Bold"></Span>
+            </FormattedString>
+        </Label>
+
+        <Label *ngIf="skills?.length > 0" [text]="('reg-profile.skilled_in' | translate) + ':'" class="m-t-5 m-b-2 font-weight-semibold"></Label>
+        <WrapLayout orientation="horizontal">
+            <Label *ngFor="let skill of skills" class="tag gray" [text]="skill.name"></Label>
+            <Label *ngIf="skills?.length > 0" class="tag gray" text="..."></Label>
+        </WrapLayout>
+
+        <Label *ngIf="languages?.length > 0" [text]="('reg-profile.student_languages' | translate) + ': '" class="m-t-5 m-b-2 font-weight-semibold"></Label>
+        <WrapLayout orientation="horizontal">
+            <Label *ngFor="let language of languages" class="tag dark" [text]="language"></Label>
+        </WrapLayout>
+    </StackLayout>
+
+</StackLayout>
+</StackLayout>

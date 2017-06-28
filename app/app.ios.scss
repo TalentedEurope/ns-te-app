@@ -1,0 +1,8 @@
+@import 'app-common';
+@import '~nativescript-theme-core/scss/platforms/index.ios';
+
+SearchBar {
+    background-color: $light-gray;
+    padding: 0;
+    margin: 0;
+}

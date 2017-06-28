@@ -1,0 +1,71 @@
+@import 'app/css/variables';
+
+.form {
+  background-color: #212E44;
+  background-image: url("~/images/register-background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  color: $white;
+}
+
+.alert {
+    margin: 10 0;
+    text-align: center;
+}
+
+.form-inner {
+  padding: 10 20;    
+}
+
+.input-field .input {
+  padding: 10;
+  width: 100%;
+  border-color: $dark-gray;
+  border-width: 0 0 1 0; 
+  color: $white;
+  placeholder-color: $dark-gray;
+  margin-bottom: 0;
+}
+
+.logo {
+  margin-top: 30;
+  margin-bottom: 45;
+  width: 40%;
+  height: auto;
+}
+
+.user-type-text {
+    margin-top: 10;
+    font-size: 16;
+    font-weight: bold;
+    text-align: center;
+}
+
+.user-type {
+    Button {
+        background-color: $blue;
+    }
+
+    Button.selected {
+        background-color: $yellow;
+    }
+}
+
+.error {
+    background-color: $red;
+    color: $white;
+    text-align: center;
+    padding: 10;
+    font-size: 14;
+    margin-top: 5;
+}
+
+.terms-text, .link {
+    font-size: 14;
+}
+
+.link {
+    color: $yellow;
+}

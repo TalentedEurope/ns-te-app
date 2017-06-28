@@ -1,0 +1,83 @@
+@import 'app/css/variables';
+
+@import 'app/css/variables';
+
+.form {
+  background-color: #212E44;
+  background-image: url("~/images/background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  color: $white;
+}
+
+.form-inner {
+  padding: 10 20;
+}
+
+.logo {
+  margin-top: 30;
+  margin-bottom: 30;
+  width: 40%;
+  height: auto;
+}
+
+.user-type-text {
+    margin-top: 10;
+    font-size: 16;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+
+.lang-btn {
+  margin-bottom: 15;
+  color: $white;
+  width: 15%;
+  background-color: transparent;
+  border-width: 1;
+  border-color: transparent;
+  text-transform: uppercase;
+}
+
+.lang-btn.selected {
+    color: $yellow;
+    font-weight: bold;
+}
+
+.search-box {
+  padding: 20 20;
+  background-color: $white;
+  color: $black;
+
+  TextField {
+    background-color: $light-gray;
+    padding: 15;
+    width: 100%;
+  }
+
+  .user-type {
+    Button {
+      color: $white;
+      background-color: $blue;
+      font-size: 16;
+      padding: 5;
+      margin: 10 15;
+      height: 35;
+      width: 35;
+      border-radius: 100;
+    }
+
+    Button.selected {
+      background-color: $yellow;
+    }
+  }
+
+  .search {
+    width: 100%;
+    background-color: $yellow;
+    margin-bottom: 0;
+  }
+
+}

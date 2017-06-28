@@ -1,0 +1,20 @@
+@import 'app/css/variables';
+
+.profile-details {
+    .header {
+        background-color: $dark-blue;
+        background-image: url("~/images/company-background.png");
+        background-size: cover;
+        background-position: center;    
+        background-attachment: fixed;
+    }
+
+
+    .photo {
+        border-radius: 10;
+        border-color: $light-gray;
+        background-color: $white;
+        margin-bottom: 15;
+    }
+
+}

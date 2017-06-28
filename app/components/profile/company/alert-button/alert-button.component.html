@@ -1,0 +1,6 @@
+<Button class="btn btn-primary" *ngIf="viewAlertButton" [ngClass]="{'disabled': disabled}" (tap)="sendAlert()">
+    <FormattedString>
+        <Span [text]="'fa-bell' | fonticon" class="fa"></Span>
+        <Span [text]="'  ' + ('reg-profile.' + (disabled ? 'alert_already_sent' : 'im_here') | translate)"></Span>
+    </FormattedString>
+</Button>

@@ -1,0 +1,146 @@
+<RadSideDrawer drawerContentSize="270" [drawerLocation]="sideDrawerService.drawerLocation" showOverNavigation="true" drawerTransition="PushTransition">
+
+    <StackLayout tkDrawerContent [class]="sideDrawerService.drawerLocation +  ' side-drawer'">
+        <StackLayout class="cardStyle">
+
+        <ScrollView>
+            <StackLayout>
+
+                <StackLayout [visibility]="sideDrawerService.filters ? 'visible' : 'collapsed'">
+                    <te-filters></te-filters>
+                </StackLayout>
+
+                <StackLayout [visibility]="sideDrawerService.menu ? 'visible' : 'collapsed'">
+                    <StackLayout class="header">
+                        <StackLayout *ngIf="userService.isLogged">
+                            <Image [ngClass]="userService.userInfo.type == 'student' ? 'user-photo': 'user-logo'" [src]="backendService.webUrl + 'uploads/photo/' + userService.userInfo.image"></Image>
+                            <Label [text]="('email.validatorRequested_line_2' | translate).replace('%s',userService.userInfo.name)" (tap)="navigateTo(['/main', {'collective': 'students'}])" class="side-label"></Label>
+                        </StackLayout>
+                        <StackLayout *ngIf="!userService.isLogged">
+                            <Image class="user-photo"  [src]="'~/images/default.png'" (tap)="navigateTo(['/login'])"></Image>
+                            <Label [text]="'login.sign_in_features' | translate" textwrap="true" (tap)="navigateTo(['/login'])" class="side-label"></Label>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                    <StackLayout *ngIf="!userService.isLogged">
+                        <Label (tap)="navigateTo(['/login'])" class="side-label">
+                            <FormattedString>
+                                <Span [text]="'fa-sign-in' | fonticon" class="fa"></Span>
+                                <Span class="text" [text]="' ' + ('global.login_btn' | translate)"></Span>
+                            </FormattedString>
+                        </Label>
+
+                        <Label (tap)="navigateTo(['/register'])" class="side-label">
+                            <FormattedString>
+                                <Span [text]="'fa-file' | fonticon" class="fa"></Span>
+                                <Span class="text" [text]="' ' + ('global.register_btn' | translate)"></Span>
+                            </FormattedString>
+                        </Label>
+                        <StackLayout class="hr-dark"></StackLayout>
+                    </StackLayout>
+
+                    <StackLayout *ngIf="!isMainPage">
+                        <Label (tap)="navigateTo(['/main'])" class="side-label">
+                            <FormattedString>
+                                <Span [text]="'fa-home' | fonticon" class="fa"></Span>
+                                <Span class="text" [text]="' ' + ('global.home' | translate)"></Span>
+                            </FormattedString>
+                        </Label>
+
+                        <Label (tap)="navigateTo(['/main', {'collective': 'students'}])" class="side-label">
+                            <FormattedString>
+                                <Span [text]="'fa-user' | fonticon" class="fa"></Span>
+                                <Span class="text" [text]="' ' + ('global.student' | translate).split('|')[1]"></Span>
+                            </FormattedString>
+                        </Label>
+
+                        <Label (tap)="navigateTo(['/main', {'collective': 'companies'}])" class="side-label">
+                            <FormattedString>
+                                <Span [text]="'fa-building' | fonticon" class="fa"></Span>
+                                <Span class="text" [text]="' ' + ('global.company' | translate).split('|')[1]"></Span>
+                            </FormattedString>
+                        </Label>
+
+                        <Label (tap)="navigateTo(['/main', {'collective': 'institutions'}])" class="side-label">
+                            <FormattedString>
+                                <Span [text]="'fa-university' | fonticon" class="fa"></Span>
+                                <Span class="text" [text]="' ' + ('global.institution' | translate).split('|')[1]"></Span>
+                            </FormattedString>
+                        </Label>
+                    </StackLayout>
+
+                    <StackLayout *ngIf="userService.isLogged">
+                        <StackLayout class="hr-dark"></StackLayout>
+
+                        <Label *ngIf="userService.userInfo.isFilled && (userService.userInfo.type === 'student' || userService.userInfo.type === 'company')"
+                            (tap)="navigateTo(['/profile/' + userService.userInfo.type + '/' + userService.userInfo.id, {'my-profile': true}])"
+                            class="side-label">
+
+                            <FormattedString>
+                                <Span [text]="'fa-address-card-o' | fonticon" class="fa"></Span>
+                                <Span class="text" [text]="' ' + ('reg-profile.my_profile' | translate)"></Span>
+                            </FormattedString>
+                        </Label>
+
+                        <Label *ngIf="userService.userInfo.type === 'company'" [text]="'navbar.alerts' | translate"
+                            (tap)="navigateTo(['/alerts'])" class="side-label">
+                            <FormattedString>
+                                <Span [text]="'fa-bell' | fonticon" class="fa"></Span>
+                                <Span class="text" [text]="' ' + ('navbar.alerts' | translate)"></Span>
+                            </FormattedString>
+                        </Label>
+
+                        <Label *ngIf="userService.userInfo.type === 'institution'"
+                            (tap)="navigateTo(['/validators'])" class="side-label">
+                            <FormattedString>
+                                <Span [text]="'fa-users' | fonticon" class="fa"></Span>
+                                <Span class="text" [text]="' ' + ('validators.validators' | translate)"></Span>
+                            </FormattedString>
+                        </Label>
+
+                        <Label *ngIf="userService.userInfo.type === 'validator'"
+                            (tap)="navigateTo(['/students'])" class="side-label">
+                            <FormattedString>
+                                <Span [text]="'fa-balance-scale' | fonticon" class="fa"></Span>
+                                <Span class="text" [text]="' ' + ('validators.my_students' | translate)"></Span>
+                            </FormattedString>
+                        </Label>
+
+                        <Label (tap)="navigateTo(['/settings'])" class="side-label">
+                            <FormattedString>
+                                <Span [text]="'fa-cogs' | fonticon" class="fa"></Span>
+                                <Span class="text" [text]="' ' + ('navbar.settings' | translate)"></Span>
+                            </FormattedString>
+                        </Label>
+                        <StackLayout class="hr-dark"></StackLayout>
+                        <Label (tap)="logout()" class="side-label">
+                            <FormattedString>
+                                <Span [text]="'fa-sign-out' | fonticon" class="fa"></Span>
+                                <Span class="text" [text]="' ' +('global.logout_btn' | translate)"></Span>
+                            </FormattedString>
+                        </Label>
+                    </StackLayout>
+                    <StackLayout class="hr-dark"></StackLayout>
+                    <Image class="link-image" src="~/images/logo.png" (tap)="openWebsite()"></Image>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+        </StackLayout>
+    </StackLayout>
+
+    <StackLayout tkMainContent class="main-content">
+
+        <StackLayout [visibility]="isContentVisible ? 'visible' : 'collapsed'">
+            <ng-content></ng-content>
+        </StackLayout>
+
+        <GridLayout class="loader-container" [visibility]="!isContentVisible ? 'visible' : 'collapsed'">
+            <ActivityIndicator width="35" height="35" [busy]="!isContentVisible" class="loader">
+            </ActivityIndicator>
+        </GridLayout>
+
+    </StackLayout>
+
+</RadSideDrawer>

@@ -1,0 +1,28 @@
+@import 'app/css/variables';
+
+
+.profile-details {
+
+    .photo {
+        border-radius: 100;
+    }
+
+    .validator-star {
+        margin-top: 3;
+        margin-right: 3;
+        color: $yellow;
+    }
+
+    .legend-indicator {
+        width: 15;
+        height: 15;
+        margin-top: 3;
+        margin-right: 8;
+        background-color: $blue;
+        vertical-align: top;
+
+        &.important {
+            background-color: $gold;
+        }
+    }
+}
