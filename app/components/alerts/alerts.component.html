@@ -3,6 +3,6 @@
 
 <te-side-drawer-page>
     <GridLayout>
-        <WebView [src]="backendService.webUrl + 'alerts?token=' + backendService.getToken()"></WebView>
+        <WebView [src]="backendService.webUrl + 'alerts?token=' + backendService.getToken() + '&lang=' + translate.currentLang"></WebView>
     </GridLayout>
 </te-side-drawer-page>

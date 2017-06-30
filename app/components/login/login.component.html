@@ -20,7 +20,7 @@
 
                 <Button [ngClass]="{'working': working }" class="btn btn-primary" [text]="working ? '&#xf192;' : 'login.login_btn' | translate" (tap)="login()"></Button>
 
-                <Button class="btn btn-secondary" [text]="'reg-profile.forgot_password' | translate"></Button>
+                <Button class="btn btn-secondary" [text]="'reg-profile.forgot_password' | translate" (tap)="openForgotPasswordUrl()"></Button>
 
             </StackLayout>
         </ScrollView>
