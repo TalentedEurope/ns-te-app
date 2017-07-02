@@ -2,12 +2,9 @@ import { AfterViewInit, ChangeDetectorRef, Component, ViewChild } from '@angular
 import { TranslateService } from '@ngx-translate/core'
 import * as Platform from 'platform'
 import { registerElement } from 'nativescript-angular/element-registry'
-import { BottomBar } from 'nativescript-bottombar'
 
 // tslint:disable-next-line:no-require-imports
 // registerElement('StatusBar', () => require('nativescript-statusbar').StatusBar)
-
-registerElement('BottomBar', () => BottomBar)
 
 @Component({
     templateUrl: 'app.component.html'

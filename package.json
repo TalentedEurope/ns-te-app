@@ -38,7 +38,7 @@
     "@ngx-translate/core": "^6.0.1",
     "@ngx-translate/http-loader": "0.0.3",
     "nativescript-angular": "~3.0.0",
-    "nativescript-bottombar": "^3.0.4",
+    "nativescript-bottombar": "^3.0.5",
     "nativescript-checkbox": "^2.1.7",
     "nativescript-email": "^1.4.0",
     "nativescript-ngx-fonticon": "^2.2.1",

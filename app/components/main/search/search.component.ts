@@ -1,8 +1,6 @@
 import {
   Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild
 } from '@angular/core'
-import { ActivatedRoute } from '@angular/router'
-import { TranslateService } from '@ngx-translate/core'
 import { SearchBar } from 'ui/search-bar'
 import { setTimeout } from 'timer'
 import { TNSFontIconService } from 'nativescript-ngx-fonticon'
@@ -10,13 +8,6 @@ import { Page } from 'ui/page'
 import { SearchService } from './search.service'
 import { FiltersService } from './shared/filters'
 import { Results } from './results.model'
-import { SideDrawerService } from '../../../shared/side-drawer-page'
-import * as Toast from 'nativescript-toast'
-import {
-  BottomBar, BottomBarItem, Notification, SelectedIndexChangedEventData, TITLE_STATE
-} from 'nativescript-bottombar'
-
-import 'rxjs/add/operator/map'
 
 @Component({
   selector: 'te-search',
@@ -53,10 +44,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   constructor(
     private page: Page,
-    private activatedRoute: ActivatedRoute,
     private fonticon: TNSFontIconService,
-    private translate: TranslateService,
-    private sideDrawerService: SideDrawerService,
     private searchService: SearchService,
     private filtersService: FiltersService,
     public results: Results

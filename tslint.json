@@ -10,6 +10,7 @@
       ["te"],
       "kebab-case"
     ],
+    "curly": [true, "ignore-same-line"],
     "max-line-length": [true, 100],
     "newline-before-return": false,
     "no-console": [false],
